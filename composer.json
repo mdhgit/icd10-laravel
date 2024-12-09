@@ -1,0 +1,30 @@
+{
+    "name": "mydiabeteshome/icd10-laravel",
+    "description": "Package made specially to integrate ICD10 API(s) with Laravel PHP",
+    "license": "MIT",
+    "version":"1.0.0",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Lynton",
+            "email": "lynton.dsouza@mydiabeteshome.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "laravel/framework": ">=5.5",
+        "guzzlehttp/guzzle": "6.5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mydiabeteshome\\ICD10\\":"src/"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers":[
+                "Mydiabeteshome\\ICD10\\ICD10ServiceProvider"
+            ]
+        }
+    }
+}
