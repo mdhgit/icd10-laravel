@@ -13,7 +13,7 @@ class ICD10ServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(ICD10::class, function () {
-            return new ICD10('client_id', 'bearer_token');
+            return new ICD10();
         });
     }
 }
