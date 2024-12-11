@@ -43,10 +43,10 @@ class ICD10 extends ICD10ServiceProvider
                     }
                     return ['status' => 200, 'data' => $data];
                 } else {
-                    return ['status' => 404, 'api_response'=>json_decode($apiResponse)];
+                    return ['status' => 404, 'api_response'=>json_encode($apiResponse)];
                 }
             } else {
-                return ['status' => 404,'api_response'=>json_decode($apiResponse)];
+                return ['status' => 404,'api_response'=>json_encode($apiResponse)];
             }
         } catch (Exception $e) {
             
