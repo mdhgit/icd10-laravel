@@ -2,7 +2,7 @@
     "name": "mydiabeteshome/icd10-laravel",
     "description": "Package made specially to integrate ICD10 API(s) with Laravel PHP",
     "license": "MIT",
-    "version":"1.0.5",
+    "version":"1.0.6",
     "minimum-stability": "dev",
     "authors": [
         {
