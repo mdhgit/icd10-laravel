@@ -29,7 +29,7 @@ class ICD10 extends ICD10ServiceProvider
             curl_close($cURLConnection);
             if (!empty($apiResponse)) {
                 $apiResponse = json_decode($apiResponse);
-                if (empty($apiResponse)) {
+                if (!empty($apiResponse)) {
                     $data = [];
                     if (!empty($apiResponse[3])) {
                         $codeList = $apiResponse[3];
