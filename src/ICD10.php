@@ -21,6 +21,10 @@ class ICD10 extends ICD10ServiceProvider
         try {
             $cURLConnection = curl_init($this->icd10Resource . '?sf=' . $search_phase . '&terms=' . $search_term . '&maxList=' . $max_list);
             curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array(
+                'Accept: application/json',
+                'content-type: application/json'
+            ));
             $apiResponse = curl_exec($cURLConnection);
             curl_close($cURLConnection);
             if (!empty($apiResponse)) {
@@ -39,12 +43,13 @@ class ICD10 extends ICD10ServiceProvider
                     }
                     return ['status' => 200, 'data' => $data];
                 } else {
-                    return ['status' => 404];
+                    return ['status' => 404, 'api_response'=>json_decode($apiResponse)];
                 }
             } else {
-                return ['status' => 404];
+                return ['status' => 404,'api_response'=>json_decode($apiResponse)];
             }
         } catch (Exception $e) {
+            
             throw new Exception($e->getMessage(), 500);
         }
     }
